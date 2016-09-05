@@ -34,6 +34,11 @@ class GameSubscriber
         WSRequestHandler $wsRequestHandler,
         LoggerInterface $logger
     ): Game {
+
+        if (!isset($rawGame['color'])) {
+            $logger->error('Color is not found: '.json_encode($rawGame));
+        }
+
         $game = new Game($rawGame['id'], $rawGame['color'], $rawGame);
 
         $chessGame = new ChessGame();

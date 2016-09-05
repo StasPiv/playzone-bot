@@ -1,0 +1,21 @@
+{
+  "engine_configuration": {
+    "engine": "stockfish",
+    "options": {
+      "Skill Level": "1",
+      "Hash": "256",
+      "Threads": "1"
+    },
+    "path_to_polyglot_run_dir": "/home/stas/work/playzone/ctg-reader/ctgexporter/examples"
+  },
+  "login": "Stockfish7_SkillLevel_1",
+  "token": "18ca40a078c274f66cc74bcb47cce99e",
+  "challenge_configuration": {
+    "send_challenge_if_user_in": true,
+    "challenge_params_is_user_in": {
+      "base": 180000,
+      "increment": 1000
+    },
+    "receive_private_challenge": true
+  }
+}

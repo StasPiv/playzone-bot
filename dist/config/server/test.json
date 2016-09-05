@@ -1,0 +1,4 @@
+{
+  "ws_server_url": "ws://ws.playzone-angular.lc:8081/",
+  "api_url": "http://api.playzone-angular.lc/app_dev.php/"
+}

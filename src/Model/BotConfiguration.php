@@ -11,52 +11,37 @@ namespace StasPiv\PlayzoneBot\Model;
 use StasPiv\ChessBestMove\Model\EngineConfiguration;
 use StasPiv\ChessBestMove\Service\ChessBestMove;
 use StasPiv\PlayzoneBot\Model\BotConfiguration\ChallengeConfiguration;
+use JMS\Serializer\Annotation as JMS;
 
 class BotConfiguration
 {
     /**
      * @var EngineConfiguration
+     *
+     * @JMS\Type("StasPiv\ChessBestMove\Model\EngineConfiguration")
      */
     private $engineConfiguration;
 
     /**
-     * @var int
-     */
-    private $skillLevel;
-
-    /**
      * @var string
+     *
+     * @JMS\Type("string")
      */
     private $login;
 
     /**
      * @var string
+     *
+     * @JMS\Type("string")
      */
     private $token;
 
     /**
      * @var ChallengeConfiguration
+     *
+     * @JMS\Type("StasPiv\PlayzoneBot\Model\BotConfiguration\ChallengeConfiguration")
      */
     private $challengeConfiguration;
-
-    /**
-     * @return int
-     */
-    public function getSkillLevel(): int
-    {
-        return $this->skillLevel;
-    }
-
-    /**
-     * @param int $skillLevel
-     * @return BotConfiguration
-     */
-    public function setSkillLevel(int $skillLevel): self
-    {
-        $this->skillLevel = $skillLevel;
-
-        return $this;
-    }
 
     /**
      * @return string

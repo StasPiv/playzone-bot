@@ -9,13 +9,10 @@
 namespace StasPiv\PlayzoneBot\Service\Replier;
 
 use Psr\Log\LoggerInterface;
-use StasPiv\ChessBestMove\Service\ChessBestMove;
 use StasPiv\PlayzoneBot\Exception\GameNotFoundException;
 use StasPiv\PlayzoneBot\Helper\GameSubscriber;
 use StasPiv\PlayzoneBot\Model\BotConfiguration;
-use StasPiv\PlayzoneBot\Model\Game;
 use StasPiv\PlayzoneBot\Model\RequestData\HttpRequestData\HttpGetGame;
-use StasPiv\PlayzoneBot\Helper\GameSender;
 use StasPiv\PlayzoneBot\Service\HttpRequestHandler;
 use StasPiv\PlayzoneBot\Helper\MyGamesSingleton;
 use StasPiv\PlayzoneBot\Service\WSRequestHandler;

@@ -6,36 +6,39 @@
  * Time: 12:11
  */
 
-use StasPiv\ChessBestMove\Model\EngineConfiguration;
+use JMS\Serializer\SerializerBuilder;
 use StasPiv\PlayzoneBot\Model\BotConfiguration;
-use StasPiv\PlayzoneBot\Model\BotConfiguration\ChallengeConfiguration;
-use StasPiv\PlayzoneBot\Model\ServerConfiguration\TestServerConfiguration;
+use StasPiv\PlayzoneBot\Model\ServerConfiguration;
 use StasPiv\PlayzoneBot\Service\Bot;
-use StasPiv\PlayzoneBot\Service\EchoLogger;
+use StasPiv\PlayzoneBot\Logger\BotLogger;
 
 require_once '../vendor/autoload.php';
 
-$botConfiguration = new BotConfiguration();
-$botConfiguration->setLogin('Glaurung')
-                 ->setToken('994b884e706a9bb26a19906364a3b2b3')
-                  ;
+$botConfigFileName = __DIR__.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'bot'.
+                  DIRECTORY_SEPARATOR.$argv[1].'.json';
 
-$engineConfiguration = new EngineConfiguration('glaurung');
+$serverConfigFileName = __DIR__.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'server'.
+                  DIRECTORY_SEPARATOR.$argv[2].'.json';
 
-$engineConfiguration->addOption('Skill Level', 20)
-                    ->addOption('Hash', 1024)
-                    ->addOption('Threads', 4)
-                    ->setPathToPolyglotRunDir('/home/stas/work/playzone/ctg-reader/ctgexporter/examples');
+if (!file_exists($botConfigFileName)) {
+    throw new \RuntimeException('No config file for bot found');
+}
 
-$botConfiguration->setEngineConfiguration($engineConfiguration);
+if (!file_exists($serverConfigFileName)) {
+    throw new \RuntimeException('No config file for server found');
+}
 
-$challengeConfiguration = new ChallengeConfiguration();
-$challengeConfiguration->setChallengeParamsIfUserIn([
-    'base'      => 300000,
-    'increment' => 3000
-]);
-
-$botConfiguration->setChallengeConfiguration($challengeConfiguration);
-
-$bot = new Bot($botConfiguration, new TestServerConfiguration(), new EchoLogger());
+$bot = new Bot(
+    SerializerBuilder::create()->build()->deserialize(
+        file_get_contents($botConfigFileName),
+        BotConfiguration::class,
+        'json'
+    ),
+    SerializerBuilder::create()->build()->deserialize(
+        file_get_contents($serverConfigFileName),
+        ServerConfiguration::class,
+        'json'
+    ),
+    new BotLogger(__DIR__.'/../logs/bot.log')
+);
 $bot->run();

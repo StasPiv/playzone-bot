@@ -33,6 +33,8 @@ class ReplierFactory
                 return new CallSendReplier();
             case 'offer_revenge':
                 return new OfferRevengeReplier();
+            case 'new_tournament_round':
+                return new NewTournamentRoundReplier();
             default:
                 throw new NoUserReplierForThisServerMessageException;
         }

@@ -1,0 +1,4 @@
+{
+  "ws_server_url": "ws://ws.playzone.immortalchess.net:8081/",
+  "api_url": "http://api.playzone.immortalchess.net/"
+}

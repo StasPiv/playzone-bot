@@ -8,16 +8,21 @@
 
 namespace StasPiv\PlayzoneBot\Model\BotConfiguration;
 
+use JMS\Serializer\Annotation as JMS;
 
 class ChallengeConfiguration
 {
     /**
      * @var bool
+     *
+     * @JMS\Type("boolean")
      */
     private $sendChallengeIfUserIn = true;
 
     /**
      * @var array
+     *
+     * @JMS\Type("array")
      */
     private $challengeParamsIfUserIn = [
         'base'      => 180000,
@@ -26,6 +31,8 @@ class ChallengeConfiguration
 
     /**
      * @var bool
+     *
+     * @JMS\Type("boolean")
      */
     private $receivePrivateChallenge = true;
 

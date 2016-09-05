@@ -26,6 +26,7 @@
         "staspiv/chess-bestmove": "~1.2",
         "psr/log": "1.0.0",
         "guzzlehttp/guzzle": "^6.2",
+        "indigophp/doctrine-annotation-autoload": "^0.1.0",
         "chesscom/chess-game": "~1.1"
     },
     "require-dev": {

@@ -1,0 +1,20 @@
+{
+  "engine_configuration": {
+    "engine": "glaurung",
+    "options": {
+      "Hash": "256",
+      "Threads": "1"
+    },
+    "path_to_polyglot_run_dir": "/home/stas/work/playzone/ctg-reader/ctgexporter/examples"
+  },
+  "login": "Glaurung",
+  "token": "994b884e706a9bb26a19906364a3b2b3",
+  "challenge_configuration": {
+    "send_challenge_if_user_in": true,
+    "challenge_params_is_user_in": {
+      "base": 180000,
+      "increment": 1000
+    },
+    "receive_private_challenge": true
+  }
+}

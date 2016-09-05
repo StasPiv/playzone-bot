@@ -1,0 +1,23 @@
+{
+  "engine_configuration": {
+    "engine": "toga2",
+    "options": {
+      "Piece Activity": "400",
+      "Piece Square Activity": "400",
+      "King Safety": "0",
+      "Hash": "256",
+      "Threads": "1"
+    },
+    "path_to_polyglot_run_dir": "/home/stas/work/playzone/ctg-reader/ctgexporter/examples"
+  },
+  "login": "Jonny",
+  "token": "e685bc276bc2476429bf0afa56e4cb52",
+  "challenge_configuration": {
+    "send_challenge_if_user_in": true,
+    "challenge_params_is_user_in": {
+      "base": 180000,
+      "increment": 1000
+    },
+    "receive_private_challenge": true
+  }
+}

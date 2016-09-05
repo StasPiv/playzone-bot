@@ -54,6 +54,10 @@ class GetMoveReplier implements ReplierInterface
 
         $game->addMove($moveObject);
 
+        if ($game->getChessGame()->gameOver()) {
+            return;
+        }
+
         $timeWhite = $serverMessageData['time_white'];
         $timeBlack = $serverMessageData['time_black'];
 
@@ -69,10 +73,14 @@ class GetMoveReplier implements ReplierInterface
 
         $delay = 1000 * ($endTime - $startTime);
 
+        $logger->debug('TIME BEFORE: '.$timeWhite.' '.$timeBlack);
+
         if ($game->getMyColor() == Game::COLOR_WHITE) {
             $timeWhite -= $delay;
+            $timeBlack += (int)$game->getRawGame()['game_params']['time_increment'];
         } else {
             $timeBlack -= $delay;
+            $timeWhite += (int)$game->getRawGame()['game_params']['time_increment'];
         }
 
         GameSender::sendGameThroughWs($wsRequestHandler, $game, $timeWhite, $timeBlack, $myMove);

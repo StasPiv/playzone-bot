@@ -162,6 +162,10 @@ class Game
             $move->getPromotion()
         );
 
+        if ($this->getChessGame()->gameOver()) {
+            $this->getChessBestMove()->shutDown();
+        }
+
         return $this;
     }
 

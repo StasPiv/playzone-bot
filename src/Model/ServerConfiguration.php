@@ -8,16 +8,21 @@
 
 namespace StasPiv\PlayzoneBot\Model;
 
+use JMS\Serializer\Annotation as JMS;
 
 class ServerConfiguration
 {
     /**
      * @var string
+     *
+     * @JMS\Type("string")
      */
-    protected $wsServerUrl = 'ws://ws.playzone.immortalchess.net';
+    protected $wsServerUrl = 'ws://ws.playzone.immortalchess.net:8081/';
 
     /**
      * @var string
+     *
+     * @JMS\Type("string")
      */
     protected $apiUrl = 'http://api.playzone.immortalchess.net/';
 
