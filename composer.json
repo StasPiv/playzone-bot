@@ -27,7 +27,8 @@
         "psr/log": "1.0.0",
         "guzzlehttp/guzzle": "^6.2",
         "indigophp/doctrine-annotation-autoload": "^0.1.0",
-        "chesscom/chess-game": "~1.1"
+        "chesscom/chess-game": "~1.1",
+        "symfony/process": "^3.1"
     },
     "require-dev": {
         "phpunit/phpunit": "5.2.8"

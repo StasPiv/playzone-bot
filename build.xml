@@ -6,7 +6,7 @@
     <property name="frontenddir" value="${workspace}/frontend" />
 
     <target name="build"
-            depends="remove_vendor, vendors_install, dump_autoload, create_folders"/>
+            depends="remove_vendor, vendors_install, dump_autoload, create_symlinks"/>
 
     <target name="remove_vendor">
         <exec executable="rm">
@@ -30,8 +30,13 @@
         </exec>
     </target>
 
-    <target name="create_folders" description="Install vendors">
-        <exec executable="mkdir" failonerror="true">
+    <target name="create_symlinks" description="Install vendors">
+        <exec executable="rm" failonerror="true">
+            <arg value="logs"/>
+        </exec>
+        <exec executable="ln" failonerror="true">
+            <arg value="-s"/>
+            <arg value="/home/stas/polyglot/logs"/>
             <arg value="logs"/>
         </exec>
     </target>
