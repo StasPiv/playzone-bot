@@ -6,7 +6,7 @@
       "Hash": "256",
       "Threads": "1"
     },
-    "path_to_polyglot_run_dir": "/home/stas/work/playzone/ctg-reader/ctgexporter/examples"
+    "path_to_polyglot_run_dir": "/home/stas/polyglot"
   },
   "login": "Stockfish7_SkillLevel_10",
   "token": "db4c94f0da9156db2cbb0a1d54e9f2a1",

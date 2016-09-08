@@ -6,7 +6,7 @@
       "Hash": "256",
       "Threads": "1"
     },
-    "path_to_polyglot_run_dir": "/home/stas/work/playzone/ctg-reader/ctgexporter/examples"
+    "path_to_polyglot_run_dir": "/home/stas/polyglot"
   },
   "login": "Billy",
   "token": "c0908c39527908b85ec7af4f51595079",

@@ -8,7 +8,7 @@
       "Hash": "256",
       "Threads": "1"
     },
-    "path_to_polyglot_run_dir": "/home/stas/work/playzone/ctg-reader/ctgexporter/examples"
+    "path_to_polyglot_run_dir": "/home/stas/polyglot"
   },
   "login": "Toga2_Agressive",
   "token": "824292053ae7fd5cec1710a052ef5dd2",
