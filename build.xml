@@ -6,7 +6,14 @@
     <property name="frontenddir" value="${workspace}/frontend" />
 
     <target name="build"
-            depends="vendors_install"/>
+            depends="remove_vendor, vendors_install"/>
+
+    <target name="remove_vendor">
+        <exec executable="rm">
+            <arg value="-rf" />
+            <arg value="vendor" />
+        </exec>
+    </target>
 
     <target name="vendors_install" description="Install vendors">
         <exec executable="composer" failonerror="true">
