@@ -32,6 +32,9 @@
     </target>
 
     <target name="create_symlinks" description="Install vendors">
+        <exec executable="rm" failonerror="true">
+            <arg value="logs"/>
+        </exec>
         <exec executable="ln" failonerror="true">
             <arg value="-s"/>
             <arg value="/home/stas/polyglot/logs"/>
