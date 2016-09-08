@@ -16,6 +16,6 @@ class RunService
     public static function run(string $botName, string $serverName = 'prod')
     {
         $process = new Process('php run_bot.php '.$botName.' '.$serverName);
-        $process->run();
+        $process->start();
     }
 }
