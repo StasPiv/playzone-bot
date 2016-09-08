@@ -2,11 +2,12 @@
 <project name="Playzone" default="build" basedir=".">
     <property name="workspace" value="${basedir}" />
     <property name="sourcedir" value="${basedir}/src" />
+    <property name="distdir" value="${basedir}/dist" />
     <property name="builddir" value="${workspace}/app/build" />
     <property name="frontenddir" value="${workspace}/frontend" />
 
     <target name="build"
-            depends="remove_vendor, vendors_install, dump_autoload, create_symlinks"/>
+            depends="remove_vendor, vendors_install, dump_autoload, create_symlinks, killBots, startBots"/>
 
     <target name="remove_vendor">
         <exec executable="rm">
@@ -35,6 +36,20 @@
             <arg value="-s"/>
             <arg value="/home/stas/polyglot/logs"/>
             <arg value="logs"/>
+        </exec>
+    </target>
+
+    <target name="killBots">
+        <exec executable="pkill">
+            <arg line="run_bot.php"/>
+        </exec>
+    </target>
+
+    <target name="startBots" description="Run ws server">
+        <exec executable="php" dir="${distdir}" failonerror="true">
+            <env key="BUILD_ID" value="dontKillMe"/>
+            <arg line="run_in_process.php"/>
+            <arg line="clever"/>
         </exec>
     </target>
 </project>
