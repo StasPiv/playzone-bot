@@ -102,7 +102,12 @@ class Bot
         );
 
         while (true) {
-            $serverMessage = $this->wsRequestHandler->getLastMessageAsArray();
+            try {
+                $serverMessage = $this->wsRequestHandler->getLastMessageAsArray();
+            } catch (\Throwable $e) {
+                $this->logger->error($e->getMessage());
+                continue;
+            }
 
             $this->logger->info(json_encode($serverMessage));
 

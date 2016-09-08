@@ -29,7 +29,7 @@ class BotLogger extends AbstractLogger
     public function log($level, $message, array $context = array())
     {
         file_put_contents(
-            $this->logFileName.'.'.$level, '['.date('y-m-d H:i:s').'] '.$message.PHP_EOL, FILE_APPEND
+            $this->logFileName.'.'.$level, '['.date('Y-m-d H:i:s').'] '.$message.PHP_EOL, FILE_APPEND
         );
     }
 }
