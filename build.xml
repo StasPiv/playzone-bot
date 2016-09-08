@@ -6,7 +6,7 @@
     <property name="frontenddir" value="${workspace}/frontend" />
 
     <target name="build"
-            depends="remove_vendor, vendors_install"/>
+            depends="remove_vendor, vendors_install, dump_autoload"/>
 
     <target name="remove_vendor">
         <exec executable="rm">
@@ -21,6 +21,12 @@
             <arg value="-o"/>
             <arg value="--working-dir"/>
             <arg path="${basedir}"/>
+        </exec>
+    </target>
+
+    <target name="dump_autoload" description="Install vendors">
+        <exec executable="composer" failonerror="true">
+            <arg value="dump-autoload"/>
         </exec>
     </target>
 </project>
