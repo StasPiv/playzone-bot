@@ -48,10 +48,10 @@
         </exec>
     </target>
 
-    <target name="startBots" description="Run ws server">
+    <target name="startBots" description="Run bots">
         <exec executable="php" dir="${distdir}" failonerror="true">
             <env key="BUILD_ID" value="dontKillMe"/>
-            <arg line="run_in_process.php"/>
+            <arg line="run_bot.php"/>
             <arg line="clever"/>
         </exec>
     </target>
