@@ -7,7 +7,7 @@
     <property name="frontenddir" value="${workspace}/frontend" />
 
     <target name="build"
-            depends="remove_vendor, vendors_install, dump_autoload, create_symlinks, killBots, startBots"/>
+            depends="remove_vendor, vendors_install, dump_autoload, create_symlinks"/>
 
     <target name="remove_vendor">
         <exec executable="rm">
@@ -51,8 +51,15 @@
     <target name="startBots" description="Run bots">
         <exec executable="php" dir="${distdir}" failonerror="true">
             <env key="BUILD_ID" value="dontKillMe"/>
-            <arg line="run_in_process.php"/>
+            <arg line="run_bot.php"/>
             <arg line="clever"/>
+            <arg line="&"/>
+        </exec>
+        <exec executable="php" dir="${distdir}" failonerror="true">
+            <env key="BUILD_ID" value="dontKillMe"/>
+            <arg line="run_bot.php"/>
+            <arg line="clyde"/>
+            <arg line="&"/>
         </exec>
     </target>
 </project>
