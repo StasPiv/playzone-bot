@@ -53,13 +53,13 @@
             <env key="BUILD_ID" value="dontKillMe"/>
             <arg line="run_bot.php"/>
             <arg line="clever"/>
-            <arg line="&"/>
+            <arg line="&amp;"/>
         </exec>
         <exec executable="php" dir="${distdir}" failonerror="true">
             <env key="BUILD_ID" value="dontKillMe"/>
             <arg line="run_bot.php"/>
             <arg line="clyde"/>
-            <arg line="&"/>
+            <arg line="&amp;"/>
         </exec>
     </target>
 </project>
