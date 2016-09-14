@@ -35,6 +35,8 @@ class ReplierFactory
                 return new OfferRevengeReplier();
             case 'new_tournament_round':
                 return new NewTournamentRoundReplier();
+            case 'game_finish':
+                return new GameFinishReplier();
             default:
                 throw new NoUserReplierForThisServerMessageException;
         }
