@@ -77,8 +77,6 @@ class WSRequestHandler
     {
         $data = SerializerBuilder::create()->build()->serialize($request, 'json');
 
-        $this->logger->debug('SEND: '.$data);
-
         $this->client->send($data);
     }
 }

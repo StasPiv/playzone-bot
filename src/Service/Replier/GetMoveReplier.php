@@ -73,8 +73,6 @@ class GetMoveReplier implements ReplierInterface
 
         $delay = 1000 * ($endTime - $startTime);
 
-        $logger->debug('TIME BEFORE: '.$timeWhite.' '.$timeBlack);
-
         if ($game->getMyColor() == Game::COLOR_WHITE) {
             $timeWhite -= $delay;
             $timeBlack += (int)$game->getRawGame()['game_params']['time_increment'];
