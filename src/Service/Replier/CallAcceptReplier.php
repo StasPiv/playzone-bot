@@ -34,7 +34,6 @@ class CallAcceptReplier implements ReplierInterface
 
         try {
             MyGamesSingleton::getGameContainer()->getGame($gameId);
-            $logger->error('Already subscribed on game #'.$gameId);
             return;
         } catch (GameNotFoundException $e) {
             $rawGame = $httpRequestHandler->send(
