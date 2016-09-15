@@ -28,6 +28,10 @@ class CallAcceptReplier implements ReplierInterface
     ) {
         $gameId = $serverMessageData['game']['id'];
 
+        if (!$serverMessageData['game']['mine']) {
+            return;
+        }
+
         try {
             MyGamesSingleton::getGameContainer()->getGame($gameId);
             $logger->error('Already subscribed on game #'.$gameId);

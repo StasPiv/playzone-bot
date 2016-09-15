@@ -109,8 +109,6 @@ class Bot
                 continue;
             }
 
-            $this->logger->info(json_encode($serverMessage));
-
             if (!isset($serverMessage['method'])) {
                 continue;
             }

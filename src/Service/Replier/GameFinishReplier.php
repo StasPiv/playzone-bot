@@ -34,7 +34,6 @@ class GameFinishReplier implements ReplierInterface
         try {
             $game = MyGamesSingleton::getGameContainer()->getGame($finishedGameId);
         } catch (GameNotFoundException $e) {
-            $logger->error('Game #'.$finishedGameId.': '.$e->getMessage());
             return;
         }
 

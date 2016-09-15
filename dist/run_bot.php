@@ -30,17 +30,20 @@ if (!file_exists($serverConfigFileName)) {
     throw new \RuntimeException('No config file for server found');
 }
 
-$bot = new Bot(
-    SerializerBuilder::create()->build()->deserialize(
-        file_get_contents($botConfigFileName),
-        BotConfiguration::class,
-        'json'
-    ),
-    SerializerBuilder::create()->build()->deserialize(
-        file_get_contents($serverConfigFileName),
-        ServerConfiguration::class,
-        'json'
-    ),
-    new BotLogger(__DIR__.'/../logs/bot.log')
+/** @var BotConfiguration $botConfiguration */
+$botConfiguration = SerializerBuilder::create()->build()->deserialize(
+    file_get_contents($botConfigFileName),
+    BotConfiguration::class,
+    'json'
 );
+/** @var ServerConfiguration $serverConfiguration */
+$serverConfiguration = SerializerBuilder::create()->build()->deserialize(
+    file_get_contents($serverConfigFileName),
+    ServerConfiguration::class,
+    'json'
+);
+
+$botLogger = new BotLogger(__DIR__.'/../logs/bot.log', $botConfiguration->getLogin());
+
+$bot = new Bot($botConfiguration, $serverConfiguration, $botLogger);
 $bot->run();
