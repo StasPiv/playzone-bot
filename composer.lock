@@ -803,16 +803,16 @@
         },
         {
             "name": "staspiv/chess-bestmove",
-            "version": "1.2.5",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/StasPiv/chess-bestmove.git",
-                "reference": "e7c9c9effaaef6fca8964f7ecec9e3ace1eafe72"
+                "reference": "744f7697e1f1b5d4034e24b81c2694b81804cae8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/StasPiv/chess-bestmove/zipball/e7c9c9effaaef6fca8964f7ecec9e3ace1eafe72",
-                "reference": "e7c9c9effaaef6fca8964f7ecec9e3ace1eafe72",
+                "url": "https://api.github.com/repos/StasPiv/chess-bestmove/zipball/744f7697e1f1b5d4034e24b81c2694b81804cae8",
+                "reference": "744f7697e1f1b5d4034e24b81c2694b81804cae8",
                 "shasum": ""
             },
             "require": {
@@ -842,10 +842,10 @@
             ],
             "description": "This is library for getting chess bestmove",
             "support": {
-                "source": "https://github.com/StasPiv/chess-bestmove/tree/1.2.5",
+                "source": "https://github.com/StasPiv/chess-bestmove/tree/1.3.0",
                 "issues": "https://github.com/StasPiv/chess-bestmove/issues"
             },
-            "time": "2016-09-04 13:58:19"
+            "time": "2016-09-15 21:35:46"
         },
         {
             "name": "symfony/process",
@@ -938,16 +938,16 @@
     "packages-dev": [
         {
             "name": "myclabs/deep-copy",
-            "version": "1.5.1",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "a8773992b362b58498eed24bf85005f363c34771"
+                "reference": "94e5ca3e90aa5b34663780393e10914f7438f991"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/a8773992b362b58498eed24bf85005f363c34771",
-                "reference": "a8773992b362b58498eed24bf85005f363c34771",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/94e5ca3e90aa5b34663780393e10914f7438f991",
+                "reference": "94e5ca3e90aa5b34663780393e10914f7438f991",
                 "shasum": ""
             },
             "require": {
@@ -976,7 +976,7 @@
                 "object",
                 "object graph"
             ],
-            "time": "2015-11-20 12:04:31"
+            "time": "2016-09-07 15:34:10"
         },
         {
             "name": "phpdocumentor/reflection-common",
