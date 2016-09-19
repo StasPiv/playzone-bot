@@ -11,6 +11,7 @@ namespace StasPiv\PlayzoneBot\Service;
 use Psr\Log\LoggerInterface;
 use StasPiv\PlayzoneBot\Exception\BotDontSendAnyDataException;
 use StasPiv\PlayzoneBot\Exception\CanNotResolveServerMessageException;
+use StasPiv\PlayzoneBot\Exception\EmptyReadConnectionException;
 use StasPiv\PlayzoneBot\Exception\NoUserReplierForThisServerMessageException;
 use StasPiv\PlayzoneBot\Model\BotConfiguration;
 use StasPiv\PlayzoneBot\Model\RequestData\WebsocketRequestData\WSIntroduction;
@@ -105,6 +106,9 @@ class Bot
             try {
                 $serverMessage = $this->wsRequestHandler->getLastMessageAsArray();
             } catch (\Throwable $e) {
+                if (strpos($e->getMessage(), 'Empty read') !== false) {
+                    throw new EmptyReadConnectionException($e->getMessage());
+                }
                 $this->logger->error($e->getMessage());
                 continue;
             }

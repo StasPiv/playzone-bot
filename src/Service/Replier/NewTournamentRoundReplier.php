@@ -29,7 +29,11 @@ class NewTournamentRoundReplier implements ReplierInterface
         );
         $httpGetCurrentTournamentGame->setTournamentId($serverMessageData['tournament_id']);
 
-        $rawGame = $httpRequestHandler->send($httpGetCurrentTournamentGame);
+        try {
+            $rawGame = $httpRequestHandler->send($httpGetCurrentTournamentGame);
+        } catch (\Exception $e) {
+            return;
+        }
 
         if (!isset($rawGame['id'])) {
             return;
