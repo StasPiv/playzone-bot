@@ -9,8 +9,10 @@
 namespace StasPiv\PlayzoneBot\Service\Replier;
 
 use Psr\Log\LoggerInterface;
+use StasPiv\ChessBestMove\Exception\BotIsFailedException;
 use StasPiv\ChessBestMove\Model\Move;
 use StasPiv\PlayzoneBot\Exception\GameNotFoundException;
+use StasPiv\PlayzoneBot\Helper\GameSubscriber;
 use StasPiv\PlayzoneBot\Model\BotConfiguration;
 use StasPiv\PlayzoneBot\Model\Game;
 use StasPiv\PlayzoneBot\Helper\GameSender;
@@ -61,11 +63,7 @@ class GetMoveReplier implements ReplierInterface
         $timeWhite = $serverMessageData['time_white'];
         $timeBlack = $serverMessageData['time_black'];
 
-        if (count($game->getMoves()) <= self::LIMIT_FOR_SENDING_MOVES_TO_ENGINE) {
-            $myMove = $game->getChessBestMove()->getBestMoveFromMovesArray($game->getMoves(), $timeWhite, $timeBlack);
-        } else {
-            $myMove = $game->getChessBestMove()->getBestMoveFromFen($game->getChessGame()->renderFen(), $timeWhite, $timeBlack);
-        }
+        $myMove = $this->makeMove($game, $timeWhite, $timeBlack);
 
         $game->addMove($myMove);
 
@@ -89,6 +87,33 @@ class GetMoveReplier implements ReplierInterface
 
         if ($game->getChessGame()->gameOver()) {
             GameSender::sendGameOverThroughWS($wsRequestHandler, $game);
+        }
+    }
+
+    /**
+     * @param Game $game
+     * @param int $timeWhite
+     * @param int $timeBlack
+     * @return Move
+     */
+    private function makeMove(Game $game, int $timeWhite, int $timeBlack)
+    {
+        try {
+            if (count($game->getMoves()) <= self::LIMIT_FOR_SENDING_MOVES_TO_ENGINE) {
+                $myMove = $game->getChessBestMove()->getBestMoveFromMovesArray($game->getMoves(), $timeWhite, $timeBlack);
+
+                return $myMove;
+            } else {
+                $myMove = $game->getChessBestMove()->getBestMoveFromFen(
+                    $game->getChessGame()->renderFen(),
+                    $timeWhite,
+                    $timeBlack
+                );
+
+                return $myMove;
+            }
+        } catch (BotIsFailedException $e) {
+            return $this->makeMove($game, $timeWhite, $timeBlack);
         }
     }
 
