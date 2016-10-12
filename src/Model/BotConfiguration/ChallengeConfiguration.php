@@ -20,6 +20,13 @@ class ChallengeConfiguration
     private $sendChallengeIfUserIn = true;
 
     /**
+     * @var bool
+     *
+     * @JMS\Type("boolean")
+     */
+    private $sendRateChallenge = false;
+
+    /**
      * @var array
      *
      * @JMS\Type("array")
@@ -51,6 +58,25 @@ class ChallengeConfiguration
     public function setSendChallengeIfUserIn(bool $sendChallengeIfUserIn): self
     {
         $this->sendChallengeIfUserIn = $sendChallengeIfUserIn;
+
+        return $this;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isSendRateChallenge(): bool
+    {
+        return $this->sendRateChallenge;
+    }
+
+    /**
+     * @param boolean $sendRateChallenge
+     * @return ChallengeConfiguration
+     */
+    public function setSendRateChallenge(bool $sendRateChallenge): self
+    {
+        $this->sendRateChallenge = $sendRateChallenge;
 
         return $this;
     }

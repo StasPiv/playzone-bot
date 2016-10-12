@@ -36,7 +36,8 @@ class UserInReplier implements ReplierInterface
         );
 
         $sendChallengeRequest->setPlayer($serverMessageData['login'])
-            ->setTime($botConfiguration->getChallengeConfiguration()->getChallengeParamsIfUserIn());
+            ->setTime($botConfiguration->getChallengeConfiguration()->getChallengeParamsIfUserIn())
+            ->setRate($botConfiguration->getChallengeConfiguration()->isSendRateChallenge());
 
         $challengeResponse = $httpRequestHandler->send($sendChallengeRequest);
 
