@@ -30,6 +30,16 @@ class HttpSendChallenge implements HttpSecurityRequestDataInterface
     /**
      * @var int
      */
+    private $timeBase = 180000;
+
+    /**
+     * @var int
+     */
+    private $timeIncrement = 1000;
+
+    /**
+     * @var int
+     */
     private $gamesCount = 1;
 
     /**
@@ -66,6 +76,44 @@ class HttpSendChallenge implements HttpSecurityRequestDataInterface
     public function setTime(array $time): self
     {
         $this->time = $time;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTimeBase(): int
+    {
+        return $this->timeBase;
+    }
+
+    /**
+     * @param int $timeBase
+     * @return HttpSendChallenge
+     */
+    public function setTimeBase(int $timeBase): self
+    {
+        $this->timeBase = $timeBase;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTimeIncrement(): int
+    {
+        return $this->timeIncrement;
+    }
+
+    /**
+     * @param int $timeIncrement
+     * @return HttpSendChallenge
+     */
+    public function setTimeIncrement(int $timeIncrement): self
+    {
+        $this->timeIncrement = $timeIncrement;
 
         return $this;
     }
