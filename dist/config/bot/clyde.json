@@ -11,7 +11,8 @@
   "login": "Clyde",
   "token": "06041b9baf3f2a9d157d3714ac25a79f",
   "challenge_configuration": {
-    "send_challenge_if_user_in": false,
+    "send_challenge_if_user_in": true,
+    "send_rate_challenge": true,
     "challenge_params_is_user_in": {
       "base": 180000,
       "increment": 1000
