@@ -15,7 +15,9 @@
     "send_rate_challenge": true,
     "challenge_params_is_user_in": {
       "base": 180000,
-      "increment": 1000
+      "base_minutes": 3,
+      "increment": 1000,
+      "increment_seconds": 1
     },
     "receive_private_challenge": true
   }
