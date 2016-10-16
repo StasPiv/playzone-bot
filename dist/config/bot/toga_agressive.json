@@ -14,7 +14,7 @@
   "token": "824292053ae7fd5cec1710a052ef5dd2",
   "challenge_configuration": {
     "send_challenge_if_user_in": true,
-    "challenge_params_is_user_in": {
+    "challenge_params_if_user_in": {
       "base": 180000,
       "increment": 1000
     },

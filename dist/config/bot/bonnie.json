@@ -13,7 +13,7 @@
   "challenge_configuration": {
     "send_challenge_if_user_in": true,
     "send_rate_challenge": true,
-    "challenge_params_is_user_in": {
+    "challenge_params_if_user_in": {
       "base": 180000,
       "base_minutes": 3,
       "increment": 1000,
