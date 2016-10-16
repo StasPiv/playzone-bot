@@ -27,14 +27,11 @@ class ChallengeConfiguration
     private $sendRateChallenge = false;
 
     /**
-     * @var array
+     * @var ChallengeParams
      *
-     * @JMS\Type("array")
+     * @JMS\Type("StasPiv\PlayzoneBot\Model\BotConfiguration\ChallengeParams")
      */
-    private $challengeParamsIfUserIn = [
-        'base'      => 180000,
-        'increment' => 0
-    ];
+    private $challengeParamsIfUserIn;
 
     /**
      * @var bool
@@ -82,18 +79,18 @@ class ChallengeConfiguration
     }
 
     /**
-     * @return array
+     * @return ChallengeParams
      */
-    public function getChallengeParamsIfUserIn(): array
+    public function getChallengeParamsIfUserIn(): ChallengeParams
     {
         return $this->challengeParamsIfUserIn;
     }
 
     /**
-     * @param array $challengeParamsIfUserIn
+     * @param ChallengeParams $challengeParamsIfUserIn
      * @return ChallengeConfiguration
      */
-    public function setChallengeParamsIfUserIn(array $challengeParamsIfUserIn): self
+    public function setChallengeParamsIfUserIn(ChallengeParams $challengeParamsIfUserIn): self
     {
         $this->challengeParamsIfUserIn = $challengeParamsIfUserIn;
 
